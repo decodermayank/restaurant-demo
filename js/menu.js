@@ -32,6 +32,24 @@ const menuItems = [
     spice: '',
     veg: true
   },
+  {
+    cat: 'starters',
+    emoji: '🧆',
+    name: 'Onion Bhaji',
+    desc: 'Crispy onion fritters with a hint of carom seeds.',
+    price: '₹140',
+    spice: '🌶️ Mild',
+    veg: true
+  },
+  {
+    cat: 'starters',
+    emoji: '🥟',
+    name: 'Samosa Chaat',
+    desc: 'Crushed samosas topped with yogurt, tamarind and mint chutneys.',
+    price: '₹160',
+    spice: '🌶️ Medium',
+    veg: true
+  },
 
   // MAINS
   {
@@ -70,6 +88,24 @@ const menuItems = [
     spice: '🌶️ Mild',
     veg: true
   },
+  {
+    cat: 'mains',
+    emoji: '🍛',
+    name: 'Chicken Tikka Masala',
+    desc: 'Roasted chicken chunks in a spicy and aromatic tomato base.',
+    price: '₹340',
+    spice: '🌶️🌶️ Hot',
+    veg: false
+  },
+  {
+    cat: 'mains',
+    emoji: '🥘',
+    name: 'Chana Masala',
+    desc: 'Spiced chickpeas simmered in a tangy onion-tomato gravy.',
+    price: '₹220',
+    spice: '🌶️ Medium',
+    veg: true
+  },
 
   // BREADS
   {
@@ -83,10 +119,28 @@ const menuItems = [
   },
   {
     cat: 'breads',
+    emoji: '🫓',
+    name: 'Butter Naan',
+    desc: 'Soft and fluffy flatbread brushed with generous butter.',
+    price: '₹60',
+    spice: '',
+    veg: true
+  },
+  {
+    cat: 'breads',
     emoji: '🍞',
     name: 'Tandoori Roti',
     desc: 'Whole wheat bread baked fresh in the clay oven.',
     price: '₹40',
+    spice: '',
+    veg: true
+  },
+  {
+    cat: 'breads',
+    emoji: '🧀',
+    name: 'Cheese Garlic Naan',
+    desc: 'Stuffed with gooey cheese and topped with garlic.',
+    price: '₹110',
     spice: '',
     veg: true
   },
@@ -109,6 +163,35 @@ const menuItems = [
     price: '₹120',
     spice: '',
     veg: true
+  },
+  {
+    cat: 'desserts',
+    emoji: '🍰',
+    name: 'Rasmalai',
+    desc: 'Soft paneer discs soaked in thickened, sweetened milk.',
+    price: '₹140',
+    spice: '',
+    veg: true
+  },
+
+  // DRINKS
+  {
+    cat: 'drinks',
+    emoji: '🥭',
+    name: 'Mango Lassi',
+    desc: 'Sweet and creamy yogurt drink blended with Alphonso mangoes.',
+    price: '₹110',
+    spice: '',
+    veg: true
+  },
+  {
+    cat: 'drinks',
+    emoji: '☕',
+    name: 'Masala Chai',
+    desc: 'Brewed Indian tea with cardamom, ginger and spices.',
+    price: '₹60',
+    spice: '',
+    veg: true
   }
 ];
 
@@ -123,6 +206,8 @@ function filterMenu(btn, cat) {
 
 function renderMenu() {
   const grid = document.getElementById('menuGrid');
+  if (!grid) return; // Fail gracefully on pages without the menu grid
+  
   const items = activeCategory === 'all'
     ? menuItems
     : menuItems.filter(i => i.cat === activeCategory);
